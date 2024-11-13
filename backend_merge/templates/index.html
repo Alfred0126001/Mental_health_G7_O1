@@ -1,0 +1,43 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>心理健康资源规划计算器</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>心理健康资源规划计算器</h1>
+    <form method="post">
+        <label for="initial_population">初始人口:</label>
+        <input type="number" id="initial_population" name="initial_population" value="1000000" required><br><br>
+
+        <label for="years">预测年数:</label>
+        <input type="number" id="years" name="years" value="1" required><br><br>
+
+        <label for="crisis_scenario">危机情景:</label>
+        <select id="crisis_scenario" name="crisis_scenario">
+            <option value="pandemic">疫情</option>
+            <option value="unemployment_rise">失业率上升</option>
+            <option value="poverty_increase">贫困增加</option>
+            <option value="refugee_influx">难民涌入</option>
+            <option value="natural_disaster">自然灾害</option>
+        </select><br><br>
+
+        <input type="submit" value="计算">
+    </form>
+
+    {% if results %}
+    <h2>结果:</h2>
+    <ul>
+        <li>平均等待时间: {{ results.waiting_time }} 单位时间</li>
+        <li>等待名单长度: {{ results.waiting_list_length }} 人</li>
+        <li>进展为重度疾病的病例数: {{ results.severe_cases }} 人</li>
+        <li>复发病例数: {{ results.relapse_cases }} 人</li>
+    </ul>
+    {% endif %}
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
