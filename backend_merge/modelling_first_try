@@ -14,13 +14,10 @@
 
 →由(1)我们得到不同年龄层的患者人数 用这个数据作为排队问题的initial data
 
-2. 使用排队模型 模拟病程发展 以及prioritising service（有插队的）
+2. 使用马尔可夫模型 模拟病程发展 
+3. 用排队模型解决看医生+痊愈的过程
 困了写不动了zzzzz
 
-注：1.我并不认为题目里要求分析人口变化cause mental health issue change；
-2.我的建模思路为：
- 2.1 先通过prevalence ratio计算出潜在nt→mild的患者人数，这个ratio可能受不同crisis影响，在不同时期会有变化 e.g.季节变化/失业等等
- 2.2 然后通过排队模型模拟病程变化；
- 2.3 在明确病程变化后，根据不同病情程度mild/moderate/severe所对应的治疗方案，进一步计算痊愈需要的医疗资源+时间；（复发在病程模拟已被考虑）
+注：我并不认为题目里要求分析人口变化cause mental health issue change；
 
-end
+
