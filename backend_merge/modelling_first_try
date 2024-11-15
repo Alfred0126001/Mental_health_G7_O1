@@ -1,0 +1,18 @@
+1.  根据不同年龄将人口划分为不同group 同一个group中的prevalence is stable；可以根据gender进一步细分
+    2.1 默认prevalence指'state from nerotypical to mild' 即此处我们只讨论nt→mild 忽略nt→moderate和nt箭头severe
+    2.2 给不同group初始ratio(null linear model) 之后根据不同crisis（失业/难民增加/自然灾害/流行病）等 对ratio进行调整
+    2.3 建模实现：
+        2.3.1 线性回归(prevalence ratio = basic ratio + beta_0 * unemployment + beta_1 * increase migrant refugees+... ) → 需要大量数据来跑模型
+    或  2.3.2 直接找论文数据 然后在basic ratio的基础上做乘法 e.g.自然灾害发生→ratio = basic ratio*constant(this constant represents the power of natural disaster)
+        数据Ref: [1] Unemployment: https://www.health.org.uk/sites/default/files/2021-04/2021%20-%20Unemployment%20and%20mental%20health.pdf
+                    + https://academic.oup.com/aje/article/191/8/1459/6571049?login=false
+                 [2] Refugees and Migrants：https://pmc.ncbi.nlm.nih.gov/articles/PMC8296172/#ijerph-18-06354-t002 
+                    + https://pmc.ncbi.nlm.nih.gov/articles/instance/2631841/pdf/11485671.pdf
+                    + https://onlinelibrary.wiley.com/doi/epdf/10.1046/j.0001-690X.2003.00246.x
+                [3] Natural disasters: https://www.tandfonline.com/doi/full/10.1080/09540261.2022.2037524?casa_token=7IUPBeY1C7AAAAAA%3AXsozMfL1tj6uibT5Bnp-dyXGAwF7ZJ98o9q_25SsAPHT9wJTNF2KcippizlplUcEHxA7E12-6g#d1e157
+    2.4 用调整后的ratio与每个group相乘 即可得到不同年龄层的潜在患病人数
+
+→由(1)我们得到不同年龄层的患者人数 用这个数据作为排队问题的initial data
+
+2. 使用排队模型 模拟病程发展 以及prioritising service（有插队的）
+困了写不动了zzzzz
