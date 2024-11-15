@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>心理健康服务模型</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        form {
+            max-width: 400px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .results {
+            margin-top: 30px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>心理健康服务模型模拟</h1>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        <label for="healthy">健康人数:</label>
+        <input type="number" id="healthy" name="healthy" value="800000" min="0" required>
+        
+        <label for="mild">轻度人数:</label>
+        <input type="number" id="mild" name="mild" value="100000" min="0" required>
+        
+        <label for="moderate">中度人数:</label>
+        <input type="number" id="moderate" name="moderate" value="80000" min="0" required>
+        
+        <label for="severe">重度人数:</label>
+        <input type="number" id="severe" name="severe" value="20000" min="0" required>
+        
+        <label for="crisis_scenario">危机场景:</label>
+        <select id="crisis_scenario" name="crisis_scenario">
+            <option value="peace">和平</option>
+            <option value="crisis">危机</option>
+        </select>
+        
+        <input type="submit" value="提交">
+    </form>
+
+    {% if results %}
+    <div class="results">
+        <h2>模拟结果</h2>
+        <ul>
+            <li>平均等待时间: {{ results.average_waiting_time }}</li>
+            <li>平均等待名单长度: {{ results.average_queue_length }}</li>
+            <li>最大等待名单长度: {{ results.max_queue_length }}</li>
+            <li>重度病例数: {{ results.severe_cases }}</li>
+            <li>复发病例数: {{ results.relapse_cases }}</li>
+        </ul>
+    </div>
+    {% endif %}
+</body>
+</html>
