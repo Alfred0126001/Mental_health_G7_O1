@@ -12,11 +12,24 @@
                 [3] Natural disasters: https://www.tandfonline.com/doi/full/10.1080/09540261.2022.2037524?casa_token=7IUPBeY1C7AAAAAA%3AXsozMfL1tj6uibT5Bnp-dyXGAwF7ZJ98o9q_25SsAPHT9wJTNF2KcippizlplUcEHxA7E12-6g#d1e157
     2.4 用调整后的ratio与每个group相乘 即可得到不同年龄层的潜在患病人数
 
+
+
 →由(1)我们得到不同年龄层的患者人数 用这个数据作为排队问题的initial data
 
 2. 使用马尔可夫模型 模拟病程发展 
+
+
+
+
+
+
 3. 用排队模型解决看医生+痊愈的过程
-困了写不动了zzzzz
+
+
+
+
+
+困了写不动了zzzzz(辛苦了老师🥹)
 
 注：我并不认为题目里要求分析人口变化cause mental health issue change；
 
